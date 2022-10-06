@@ -1,0 +1,55 @@
+<div class="container-fluid mt-5 mb-5">
+    <h1>Sign Up</h1>
+    <form class="col-lg-14" [formGroup]="RegistrationForm" (ngSubmit)="OnSubmit(RegistrationForm.value)">
+        <div class="row">
+            <div class="col-lg-6 mt-2 mb-3">
+                <input type="text"  [class.is-invalid]="getters.FirstName.invalid && getters.FirstName.touched"
+                class="form-control" placeholder="FirstName" formControlName="FirstName">
+                <small [class.d-none]="getters.FirstName.valid || getters.FirstName.untouched" class="text-danger">
+                      FirstName is Required</small>
+            </div>
+
+
+            <div class="col-lg-6 mt-2 mb-3">
+                <input type="text" [class.is-invalid]="getters.LastName.invalid && getters.LastName.touched"
+                class="form-control" placeholder="LastName" formControlName="LastName">
+                <small [class.d-none]="getters.LastName.valid || getters.LastName.untouched" class="text-danger">
+                    LastName is Required</small>
+            </div>
+
+
+            <div class="col-lg-12 mt-2 mb-3">
+             <input type="text" [class.is-invalid]="getters.Email.invalid && getters.Email.touched"
+             class="form-control" placeholder=" Email" formControlName="Email">
+             <div *ngIf="getters.Email.invalid && getters.Email.touched">
+                <small *ngIf="getters.Email.errors?.required" class="text-danger">Email is Required</small>
+                <small *ngIf="getters.Email.errors.pattern" class="text-danger">Invalid Email (Ex : abc@xyz.com)</small>
+            </div>
+            </div>
+
+            <div class="col-lg-12 mt-2 mb-3">
+                <input type="text" [class.is-invalid]="getters.MobNumber.invalid && getters.MobNumber.touched"
+                class="form-control" placeholder=" Mobile Number" formControlName="MobNumber">
+                <div *ngIf="getters.MobNumber.invalid && getters.MobNumber.touched">
+                <small *ngIf="getters.MobNumber.errors?.required" class="text-danger">Mobile Number is Required</small>
+                <small *ngIf="getters.MobNumber.errors.pattern" class="text-danger">Mobile Number Should be 10 Digits</small>
+            </div>
+            </div>
+
+            <div class="col-lg-12 mt-2 mb-3">
+                <input type="text" [class.is-invalid]="getters.Password.invalid && getters.Password.touched"
+                class="form-control" placeholder="Password" formControlName="Password">
+                <div *ngIf="getters.Password.invalid && getters.Password.touched">
+                    <small *ngIf="getters.Password.errors?.required" class="text-danger">Password is Required</small>
+                    <small *ngIf="getters.Password.errors?.minlength" class="text-danger"> Password should be a minimum of 6 Characters</small>
+                    <small *ngIf="getters.Password.errors?.maxlength" class="text-danger"> Password should be a maximum of 12 Characters</small>
+                </div>
+            </div>
+
+            <div class="col-lg-12 mt-3 mb-4">
+                <input [disabled]="RegistrationForm.invalid" type = "submit" class = "forsubmit" class="btn btn-primary" value = "Register">
+            </div>
+        </div>
+    </form>
+    <a routerLink="../login">Already a user? Sign in</a>
+</div>

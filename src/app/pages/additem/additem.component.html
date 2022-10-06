@@ -1,0 +1,47 @@
+<div class="container mt-5 mb-5">
+    <h1>Add Art</h1>
+    <form class="col-lg-6" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <div class="row">
+
+            <div class="col-lg-6 mt-2 mb-2">
+                <input type="text" [class.is-invalid]="ArtName.invalid && ArtName.touched" 
+                class="form-control" placeholder="Art Name" formControlName="ArtName">
+                <small [class.d-none]="ArtName.valid || ArtName.untouched" class="text-danger">
+                      Art Name is Required</small>
+            </div>
+
+
+            <div class="col-lg-6 mt-2 mb-2">
+                <input type="number" [class.is-invalid]="Price.invalid && Price.touched" 
+                class="form-control" placeholder="prize" formControlName="Prize">
+                <div *ngIf="Price.invalid && Price.touched">
+                    <small *ngIf="Price.errors?.required" class="text-danger">Price is Required</small>
+                    <small *ngIf="Price.errors?.min" class="text-danger">Price should be more than {{20 | currency:'INR'}}</small>
+                </div>
+            </div>
+
+
+            <div class="col-lg-12 mt-2 mb-2">
+             <textarea type="text" [class.is-invalid]="Description.invalid && Description.touched"
+             class="form-control" placeholder="Description" formControlName="Description"></textarea>
+            <div *ngIf="Description.invalid && Description.touched">
+                <small *ngIf="Description.errors?.required" class="text-danger">Description is Required</small>
+                <small *ngIf="Description.errors?.minlength" class="text-danger">Description should be greater than 20 Characters</small>
+            </div>
+            </div>
+
+
+            <div class="col-lg-12 mt-3 mb-2">
+                <input #image type="file" name="image" [class.is-invalid]="Image.invalid || Image.errors?.required"
+                formControlName="image" (change)="selectImage($event)">
+                <small [class.d-none]="Image.valid || Image.errors?.required" class="text-danger">
+                    Art Name is Required</small>
+            </div>
+
+
+            <div class="col-lg-12 mt-3">
+                <input [disabled]="form.invalid" type = "submit" class = "forsubmit" class="btn btn-primary" value = "submit">
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,41 @@
+<div class="container-fluid mt-3">
+  <h2>Profile</h2>
+<div class="col-md-8 mt-2">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Full Name</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{userdata[0].FirstName + ' '+ userdata[0].LastName}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Email</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{userdata[0].Email}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Mobile</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{userdata[0].MobNumber}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12">
+            <a class="btn btn-info " (click)="edit()">Edit</a>
+            <a class="btn btn-danger" (click)="logout()" style="margin-left:6px;" (click)="edit()">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

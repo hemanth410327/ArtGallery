@@ -1,0 +1,28 @@
+<div class="container-fluid mt-6 mb-5">
+    <h1>Sign In</h1>
+   
+    <form class="col-lg-10 mt-3" [formGroup]="loginform" (ngSubmit)="onSubmit(loginform.value)">
+        <div class="row">
+
+            <div class="col-lg-12 mt-2 mb-4">
+             <input type="text" [class.is-invalid]="Email.invalid && Email.touched"
+             class="form-control" placeholder=" Email" formControlName="Email">
+             <small [class.d-none]="Email.valid || Email.untouched" class="text-danger">
+                Email is Required</small>
+            </div>
+
+
+            <div class="col-lg-12 mt-2 mb-4">
+                <input type="password" [class.is-invalid]="Password.invalid && Password.touched"
+                class="form-control" placeholder="Password" formControlName="Password">
+                <small [class.d-none]="Password.valid || Password.untouched" class="text-danger">
+                    Password is Required</small>
+            </div>
+
+            <div class="col-lg-12 mb-4 mt-2">
+                <input [disabled]="loginform.invalid" type = "submit" class = "forsubmit" class="btn btn-primary" value = "Login">
+            </div>
+        </div>
+    </form>
+    <a routerLink="../register">Not a User? Sign Up</a>
+</div>

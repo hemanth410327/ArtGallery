@@ -1,0 +1,21 @@
+
+<div class="container mt-3 mb-5">
+    <h2>My Uploads</h2>
+    <hr>
+    <div class="row">
+        <div *ngIf="foodData.length === 0">
+            <h3 class="text-danger">NO UPLOADS !!!</h3>
+        </div>
+        <div class="col-lg-4" *ngFor="let fd of foodData">
+
+            <div class="foodbox mt-3 mb-3">
+                <img src="{{path+'/'+fd.ImagePath}}">
+                <h1>{{fd.ImageName}}</h1>
+                <p>{{fd.Prize | currency:'INR'}}</p>
+                <br/>
+               <!-- <a class="btn btn-info" [routerLink]="['/menu',fd.id]">View &nbsp;<i class="bi bi-eye"></i></a>-->
+               <a (click)="delete(fd.id,fd.ImageName)" class="btn btn-danger">Delete &nbsp;<i class="bi bi-trash"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
