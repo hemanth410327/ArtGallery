@@ -19,6 +19,5 @@ Angular CLI: 12.2.10<br/>
 
 # MyUploads
 ![Screenshot (283)](https://user-images.githubusercontent.com/56040295/194261595-e453f087-f7d7-4461-bc91-bf55538d03ae.png)
-
 # purchaseDetails
 ![Screenshot (280)](https://user-images.githubusercontent.com/56040295/194261519-7be2cbc3-7516-4871-9824-54c3001d7b0b.png)
